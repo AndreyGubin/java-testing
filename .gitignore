@@ -1,3 +1,5 @@
 # Ignore system files
 .DS_Store
 Thumbs.db
+sandbox/.gradle/
+sandbox/build/

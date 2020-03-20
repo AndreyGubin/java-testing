@@ -3,3 +3,5 @@
 Thumbs.db
 sandbox/.gradle/
 sandbox/build/
+out/
+.idea/

@@ -5,3 +5,6 @@ sandbox/.gradle/
 sandbox/build/
 out/
 .idea/
+sandbox/gradle/
+sandbox/gradlew.bat
+sandbox/gradlew

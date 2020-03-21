@@ -8,3 +8,8 @@ out/
 sandbox/gradle/
 sandbox/gradlew.bat
 sandbox/gradlew
+addressbook-web-tests/.gradle/
+addressbook-web-tests/gradle/
+addressbook-web-tests/gradlew
+addressbook-web-tests/gradlew.bat
+addressbook-web-tests/build/

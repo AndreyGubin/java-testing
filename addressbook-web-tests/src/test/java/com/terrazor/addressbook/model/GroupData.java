@@ -1,4 +1,4 @@
-package com.terrazor.addressbook;
+package com.terrazor.addressbook.model;
 
 public class GroupData {
     private final String name;

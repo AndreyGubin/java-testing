@@ -7,5 +7,7 @@ public class ContactModificationTests extends TestBaseContact {
     @Test
     public void testContactModification() throws Exception {
         editContact();
+        editContactAddress();
+        saveContactEdition();
     }
 }

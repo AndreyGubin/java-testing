@@ -13,6 +13,7 @@ public class  ApplicationManager {
 
     private SessionHelper sessionHelper;
     private NavigationHelper navigationHelper;
+    private ContactHelper contactHelper;
     private GroupHelper groupHelper;
     private String browser;
 
@@ -30,6 +31,7 @@ public class  ApplicationManager {
         }
         wd.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
         groupHelper = new GroupHelper(wd);
+        contactHelper = new ContactHelper(wd);
         navigationHelper = new NavigationHelper(wd);
         sessionHelper = new SessionHelper(wd);
         wd.get("http://localhost:8888/addressbook/index.php");
@@ -48,4 +50,7 @@ public class  ApplicationManager {
         return navigationHelper;
     }
 
+    public ContactHelper getContactHelper() {
+        return contactHelper;
+    }
 }

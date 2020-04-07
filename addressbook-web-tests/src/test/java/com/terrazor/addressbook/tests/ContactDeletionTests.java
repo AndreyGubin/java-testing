@@ -2,12 +2,12 @@ package com.terrazor.addressbook.tests;
 
 import org.testng.annotations.Test;
 
-public class ContactDeletionTests extends TestBaseContact {
+public class ContactDeletionTests extends TestBase {
 
     @Test
     public void testContactDeletion() throws Exception {
-        selectContact();
-        deleteContact();
-        acceptDeletion();
+        app.getContactHelper().selectContact();
+        app.getContactHelper().deleteContact();
+        app.getContactHelper().acceptDeletion();
     }
 }

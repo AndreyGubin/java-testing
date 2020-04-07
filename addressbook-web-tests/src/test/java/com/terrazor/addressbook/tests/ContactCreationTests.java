@@ -3,7 +3,7 @@ package com.terrazor.addressbook.tests;
 import com.terrazor.addressbook.model.ContactData;
 import org.testng.annotations.Test;
 
-public class ContactCreationTests extends TestBaseContact {
+public class ContactCreationTests extends TestBase {
 
   @Test
   public void testContactCreation() throws Exception {
@@ -12,5 +12,4 @@ public class ContactCreationTests extends TestBaseContact {
     submitContactCreation();
     returnToHomePage();
   }
-
 }

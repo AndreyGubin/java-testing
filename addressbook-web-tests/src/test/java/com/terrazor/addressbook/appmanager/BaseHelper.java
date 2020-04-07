@@ -19,17 +19,11 @@ public class BaseHelper {
     protected void type(By locator, String text) {
         click(locator);
         if (text != null) {
-            wd.findElement(locator).clear();
-            wd.findElement(locator).sendKeys(text);
-        }
-    }
-
-    public boolean isElementPresent(By by) {
-        try {
-            wd.findElement(by);
-            return true;
-        } catch (NoSuchElementException e) {
-            return false;
+            String existingText =  wd.findElement(locator).getAttribute("value");
+            if (! text.equals(existingText)) {
+                wd.findElement(locator).clear();
+                wd.findElement(locator).sendKeys(text);
+            }
         }
     }
 
@@ -38,6 +32,15 @@ public class BaseHelper {
             wd.switchTo().alert();
             return true;
         } catch (NoAlertPresentException e) {
+            return false;
+        }
+    }
+
+    public boolean isElementPresent(By locator) {
+        try {
+            wd.findElement(locator);
+            return true;
+        } catch (NoSuchElementException ex) {
             return false;
         }
     }

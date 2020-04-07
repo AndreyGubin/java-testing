@@ -3,13 +3,14 @@ package com.terrazor.addressbook.appmanager;
 import com.terrazor.addressbook.model.ContactData;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.Select;
+import org.testng.Assert;
 
 public class ContactHelper extends BaseHelper {
 
     public ContactHelper(WebDriver wd) {
         super(wd);
     }
-
 
     public void gotoAddContactPage() {
         wd.findElement(By.linkText("add new")).click();
@@ -49,7 +50,7 @@ public class ContactHelper extends BaseHelper {
         wd.findElement(By.xpath("(//input[@name='submit'])[2]")).click();
     }
 
-    public void fillContactPage(ContactData contactData) {
+    public void fillContactPage(ContactData contactData, boolean creation) {
         wd.findElement(By.name("firstname")).click();
         wd.findElement(By.name("firstname")).clear();
         wd.findElement(By.name("firstname")).sendKeys(contactData.getFirstName());
@@ -62,6 +63,11 @@ public class ContactHelper extends BaseHelper {
         wd.findElement(By.name("email")).click();
         wd.findElement(By.name("email")).clear();
         wd.findElement(By.name("email")).sendKeys(contactData.getEmail());
-    }
 
+        if (creation) {
+            new Select(wd.findElement(By.name("new_group"))).selectByVisibleText(contactData.getGroup());
+        } else {
+            Assert.assertFalse(isElementPresent(By.name("new_group")));
+        }
+    }
 }

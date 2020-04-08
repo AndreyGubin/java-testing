@@ -16,6 +16,10 @@ public class ContactHelper extends BaseHelper {
         wd.findElement(By.linkText("add new")).click();
     }
 
+    public void goToHomePage() {
+        wd.findElement(By.linkText("home")).click();
+    }
+
     public void selectContact() {
         wd.findElement(By.name("selected[]")).click();
     }
@@ -42,10 +46,6 @@ public class ContactHelper extends BaseHelper {
         wd.findElement(By.name("address")).sendKeys("Russia");
     }
 
-    public void returnToHomePage() {
-        wd.findElement(By.linkText("home page")).click();
-    }
-
     public void submitContactCreation() {
         wd.findElement(By.xpath("(//input[@name='submit'])[2]")).click();
     }
@@ -69,5 +69,17 @@ public class ContactHelper extends BaseHelper {
         } else {
             Assert.assertFalse(isElementPresent(By.name("new_group")));
         }
+    }
+
+    public void createContact(ContactData contactData, boolean creation) {
+        gotoAddContactPage();
+        fillContactPage(new ContactData("Andrey", "Gubin", "+79991234567", "test@mail.ru", "test1"), true);
+        submitContactCreation();
+        goToHomePage();
+    }
+
+
+    public boolean isThereAContact() {
+        return isElementPresent(By.name("selected[]"));
     }
 }

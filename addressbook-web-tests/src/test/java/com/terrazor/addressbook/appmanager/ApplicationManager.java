@@ -34,7 +34,7 @@ public class  ApplicationManager {
         contactHelper = new ContactHelper(wd);
         navigationHelper = new NavigationHelper(wd);
         sessionHelper = new SessionHelper(wd);
-        wd.get("http://localhost:8888/addressbook/index.php");
+        wd.get("http://localhost/addressbook/index.php");
         sessionHelper.login("admin", "secret");
     }
 

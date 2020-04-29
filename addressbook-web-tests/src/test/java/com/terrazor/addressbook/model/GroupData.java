@@ -3,12 +3,12 @@ package com.terrazor.addressbook.model;
 import java.util.Objects;
 
 public class GroupData {
-    private final String id;
+    private int id;
     private final String name;
     private final String header;
     private final String footer;
 
-    public GroupData(String id, String name, String header, String footer) {
+    public GroupData(int id, String name, String header, String footer) {
         this.id = id;
         this.name = name;
         this.header = header;
@@ -16,7 +16,7 @@ public class GroupData {
     }
 
     public GroupData(String name, String header, String footer) {
-        this.id = null;
+        this.id = 0;
         this.name = name;
         this.header = header;
         this.footer = footer;
@@ -44,8 +44,12 @@ public class GroupData {
                 '}';
     }
 
-    public String getId() {
+    public int getId() {
         return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getName() {

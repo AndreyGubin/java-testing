@@ -3,8 +3,12 @@ package com.terrazor.addressbook.appmanager;
 import com.terrazor.addressbook.model.ContactData;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class ContactHelper extends BaseHelper {
 
@@ -20,8 +24,8 @@ public class ContactHelper extends BaseHelper {
         wd.findElement(By.linkText("home")).click();
     }
 
-    public void selectContact() {
-        wd.findElement(By.name("selected[]")).click();
+    public void selectContact(int index) {
+        wd.findElements(By.name("selected[]")).get(index).click();
     }
 
     public void deleteContact() {
@@ -32,8 +36,8 @@ public class ContactHelper extends BaseHelper {
         wd.switchTo().alert().accept();
     }
 
-    public void editContact() {
-        wd.findElement(By.xpath("//img[@alt='Edit']")).click();
+    public void editContact(int index) {
+        wd.findElements(By.xpath("//img[@alt='Edit']")).get(index).click();
     }
 
     public void saveContactEdition() {
@@ -81,5 +85,22 @@ public class ContactHelper extends BaseHelper {
 
     public boolean isThereAContact() {
         return isElementPresent(By.name("selected[]"));
+    }
+
+    public int getContactCount() {
+        return wd.findElements(By.name("selected[]")).size();
+    }
+
+    public List<ContactData> getContactList() {
+        List<ContactData> contacts = new ArrayList<ContactData>();
+        List<WebElement> elements = wd.findElements(By.cssSelector("[name='entry']"));
+        for (WebElement element : elements) {
+            String fname = element.findElement(By.xpath("td[3]")).getText();
+            String lname = element.findElement(By.xpath("td[2]")).getText();
+            int id = Integer.parseInt(element.findElement(By.xpath("//input[@type='checkbox'and@name='selected[]']")).getAttribute("value"));
+            ContactData contact = new ContactData(id, fname, lname, null, null, null);
+            contacts.add(contact);
+        }
+        return contacts;
     }
 }

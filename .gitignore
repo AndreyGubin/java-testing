@@ -13,3 +13,4 @@ addressbook-web-tests/gradle/
 addressbook-web-tests/gradlew
 addressbook-web-tests/gradlew.bat
 addressbook-web-tests/build/
+addressbook-web-tests/debug.log

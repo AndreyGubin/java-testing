@@ -1,37 +1,45 @@
 package com.terrazor.addressbook.model;
 
 public class ContactData {
-    private final String firstName;
-    private final String lastName;
-    private final String mobileNumber;
-    private final String email;
-    private int id;
+    private  String firstName;
+    private  String lastName;
+    private  String mobileNumber;
+    private  String email;
+    private int id = Integer.MAX_VALUE;
     private String group;
-
-    public ContactData(String firstName, String lastName, String mobileNumber, String email, String group) {
-        this.id = Integer.MAX_VALUE;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.mobileNumber = mobileNumber;
-        this.email = email;
-        this.group = group;
-    }
-
-    public ContactData(int id, String firstName, String lastName, String mobileNumber, String email, String group) {
-        this.id = id;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.mobileNumber = mobileNumber;
-        this.email = email;
-        this.group = group;
-    }
 
     public int getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public ContactData withId(int id) {
         this.id = id;
+        return this;
+    }
+
+    public ContactData withFirstName(String firstName) {
+        this.firstName = firstName;
+        return this;
+    }
+
+    public ContactData withLastName(String lastName) {
+        this.lastName = lastName;
+        return this;
+    }
+
+    public ContactData withMobileNumber(String mobileNumber) {
+        this.mobileNumber = mobileNumber;
+        return this;
+    }
+
+    public ContactData withEmail(String email) {
+        this.email = email;
+        return this;
+    }
+
+    public ContactData withGroup(String group) {
+        this.group = group;
+        return this;
     }
 
     @Override

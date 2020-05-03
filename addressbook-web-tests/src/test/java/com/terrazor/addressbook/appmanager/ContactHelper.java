@@ -77,8 +77,22 @@ public class ContactHelper extends BaseHelper {
 
     public void createContact(ContactData contactData, boolean creation) {
         gotoAddContactPage();
-        fillContactPage(new ContactData("Andrey", "Gubin", "+79991234567", "test@mail.ru", "test1"), true);
+        fillContactPage(contactData, true);
         submitContactCreation();
+        goToHomePage();
+    }
+
+    public void modify(int index, ContactData contact) {
+       editContact(index);
+       fillContactPage(contact, false);
+       saveContactEdition();
+       goToHomePage();
+    }
+
+    public void delete(int index) {
+        selectContact(index);
+        deleteContact();
+        acceptDeletion();
         goToHomePage();
     }
 
@@ -98,8 +112,7 @@ public class ContactHelper extends BaseHelper {
             String fname = element.findElement(By.xpath("td[3]")).getText();
             String lname = element.findElement(By.xpath("td[2]")).getText();
             int id = Integer.parseInt(element.findElement(By.xpath("//input[@type='checkbox'and@name='selected[]']")).getAttribute("value"));
-            ContactData contact = new ContactData(id, fname, lname, null, null, null);
-            contacts.add(contact);
+            contacts.add(new ContactData().withId(id).withFirstName(fname).withLastName(lname));
         }
         return contacts;
     }

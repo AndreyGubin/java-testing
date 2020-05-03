@@ -8,6 +8,7 @@ import org.testng.annotations.Test;
 import java.util.Comparator;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class ContactModificationTests extends TestBase {
 
@@ -21,19 +22,15 @@ public class ContactModificationTests extends TestBase {
 
     @Test
     public void testContactModification() {
-
-        List<ContactData> before = app.getContactHelper().getContactList();
-        int index = before.size() - 1;
-        ContactData contact = new ContactData().withId(before.get(index).getId()).withFirstName("Andrey").withLastName("Gubin").withMobileNumber("+7927000000").withEmail("test@mail.ru").withGroup("test");
-        app.getContactHelper().modify(index, contact);
-        List<ContactData> after = app.getContactHelper().getContactList();
+        Set<ContactData> before = app.getContactHelper().all();
+        ContactData modifiedContact = before.iterator().next();
+        ContactData contact = new ContactData().withId(modifiedContact.getId()).withFirstName("Andrey").withLastName("Gubin").withMobileNumber("+7927000000").withEmail("test@mail.ru").withGroup("test");
+        app.getContactHelper().modify(contact);
+        Set<ContactData> after = app.getContactHelper().all();
         Assert.assertEquals(after.size(), before.size());
 
-        before.remove(index);
+        before.remove(modifiedContact);
         before.add(contact);
-        Comparator<? super ContactData> byId = (c1, c2) -> Integer.compare(c1.getId(), c2.getId());
-        before.sort(byId);
-        after.sort(byId);
         Assert.assertEquals(before, after);
 
     }

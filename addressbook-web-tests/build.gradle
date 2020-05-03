@@ -11,6 +11,8 @@ dependencies {
     // https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java
     compile group: 'org.seleniumhq.selenium', name: 'selenium-java', version: '4.0.0-alpha-5'
 
+// https://mvnrepository.com/artifact/org.hamcrest/hamcrest-library
+    testCompile group: 'org.hamcrest', name: 'hamcrest-library', version: '2.2'
 }
 
 test {

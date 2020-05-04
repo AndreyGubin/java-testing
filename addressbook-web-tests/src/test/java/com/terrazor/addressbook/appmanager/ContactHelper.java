@@ -7,6 +7,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -82,16 +83,22 @@ public class ContactHelper extends BaseHelper {
         }
     }
 
-    public ContactData infoFromEditForm (ContactData contact) {
+    public ContactData infoFromEditForm(ContactData contact) {
         editContactById(contact.getId());
         String firstname = wd.findElement(By.name("firstname")).getAttribute("value");
         String lastname = wd.findElement(By.name("lastname")).getAttribute("value");
         String home = wd.findElement(By.name("home")).getAttribute("value");
         String mobile = wd.findElement(By.name("mobile")).getAttribute("value");
         String work = wd.findElement(By.name("work")).getAttribute("value");
+        String address = wd.findElement(By.name("address")).getText();
+        String email = wd.findElement(By.name("email")).getText();
+        String email2 = wd.findElement(By.name("email2")).getText();
+        String email3 = wd.findElement(By.name("email3")).getText();
+
+
         wd.navigate().back();
         return new ContactData().withId(contact.getId()).withFirstName(firstname)
-                .withLastName(lastname).withHomePhone(home).withMobilePhone(mobile).withWorkPhone(work);
+                .withLastName(lastname).withAddress(address).withEmail(email).withEmail2(email2).withEmail3(email3).withHomePhone(home).withMobilePhone(mobile).withWorkPhone(work);
 
     }
 
@@ -110,10 +117,10 @@ public class ContactHelper extends BaseHelper {
     }
 
     public void modify(ContactData contact) {
-       editContactById(contact.getId());
-       fillContactPage(contact, false);
-       saveContactEdition();
-       goToHomePage();
+        editContactById(contact.getId());
+        fillContactPage(contact, false);
+        saveContactEdition();
+        goToHomePage();
     }
 
     private void editContactById(int id) {
@@ -162,7 +169,9 @@ public class ContactHelper extends BaseHelper {
             String fname = element.findElement(By.xpath("td[3]")).getText();
             String lname = element.findElement(By.xpath("td[2]")).getText();
             String allPhones = element.findElement(By.xpath("td[6]")).getText();
-            contacts.add(new ContactData().withId(id).withFirstName(fname)
+            String allEmails = element.findElement(By.xpath("td[5]")).getText();
+            String address = element.findElement(By.xpath("td[4]")).getText();
+            contacts.add(new ContactData().withId(id).withFirstName(fname).withLastName(lname).withAddress(address).withAllEmails(allEmails)
                     .withAllPhones(allPhones));
         }
         return contacts;

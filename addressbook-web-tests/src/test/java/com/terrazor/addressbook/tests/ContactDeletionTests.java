@@ -4,6 +4,7 @@ import com.terrazor.addressbook.model.ContactData;
 import com.terrazor.addressbook.model.Contacts;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.testng.Assert.assertEquals;
@@ -27,5 +28,5 @@ public class ContactDeletionTests extends TestBase {
         Contacts after = app.getContactHelper().all();
         assertEquals(after.size(), before.size() - 1);
         assertThat(after, equalTo(before.without(deletedContact)));
-        }
     }
+}

@@ -7,6 +7,10 @@ public class ContactData {
     private  String email;
     private int id = Integer.MAX_VALUE;
     private String group;
+    private String homePhone;
+    private String mobilePhone;
+    private String workPhone;
+
 
     @Override
     public boolean equals(Object o) {
@@ -62,6 +66,21 @@ public class ContactData {
         return this;
     }
 
+    public ContactData withHomePhone(String homePhone) {
+        this.homePhone = homePhone;
+        return this;
+    }
+
+    public ContactData withMobilePhone(String mobilePhone) {
+        this.mobilePhone = mobilePhone;
+        return this;
+    }
+
+    public ContactData withWorkPhone(String workPhone) {
+        this.workPhone = workPhone;
+        return this;
+    }
+
     @Override
     public String toString() {
         return "ContactData{" +
@@ -89,6 +108,18 @@ public class ContactData {
 
     public String getGroup() {
         return group;
+    }
+
+    public String getHomePhone() {
+        return homePhone;
+    }
+
+    public String getMobilePhone() {
+        return mobilePhone;
+    }
+
+    public String getWorkPhone() {
+        return workPhone;
     }
 
 }

@@ -1,5 +1,7 @@
 package com.terrazor.addressbook.model;
 
+import java.io.File;
+
 public class ContactData {
     private String firstName;
     private String lastName;
@@ -15,6 +17,16 @@ public class ContactData {
     private String allPhones;
     private String address;
     private String allEmails;
+    private File photo;
+
+    public File getPhoto() {
+        return photo;
+    }
+
+    public ContactData withPhoto(File photo) {
+        this.photo = photo;
+        return this;
+    }
 
     public ContactData withId(int id) {
         this.id = id;

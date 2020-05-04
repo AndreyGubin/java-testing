@@ -66,6 +66,7 @@ public class ContactHelper extends BaseHelper {
         wd.findElement(By.name("lastname")).click();
         wd.findElement(By.name("lastname")).clear();
         wd.findElement(By.name("lastname")).sendKeys(contactData.getLastName());
+        attach(By.name("photo"), contactData.getPhoto());
         wd.findElement(By.name("home")).click();
         wd.findElement(By.name("home")).clear();
         wd.findElement(By.name("home")).sendKeys(contactData.getHomePhone());

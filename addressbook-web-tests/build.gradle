@@ -13,6 +13,10 @@ dependencies {
 
 // https://mvnrepository.com/artifact/org.hamcrest/hamcrest-library
     testCompile group: 'org.hamcrest', name: 'hamcrest-library', version: '2.2'
+
+    // https://mvnrepository.com/artifact/com.beust/jcommander
+    compile group: 'com.beust', name: 'jcommander', version: '1.78'
+
 }
 
 test {

@@ -1,16 +1,25 @@
 package com.terrazor.addressbook.model;
 
+import com.google.gson.annotations.Expose;
+import com.thoughtworks.xstream.annotations.XStreamAlias;
+
 import java.io.File;
 
+@XStreamAlias("contact")
 public class ContactData {
+    @Expose
     private String firstName;
+    @Expose
     private String lastName;
     private String mobileNumber;
+    @Expose
     private String email;
     private String email2;
     private String email3;
     private int id = Integer.MAX_VALUE;
+    @Expose
     private String group;
+    @Expose
     private String homePhone;
     private String mobilePhone;
     private String workPhone;

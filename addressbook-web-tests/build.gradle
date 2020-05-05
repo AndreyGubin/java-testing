@@ -25,6 +25,14 @@ dependencies {
 
 }
 
-test {
-    useTestNG()
+task testGroups (type: Test) {
+    useTestNG {
+        suites 'src/test/java/com/terrazor/addressbook/resources/testng-groups.xml'
+    }
+}
+
+task testContacts (type: Test) {
+    useTestNG {
+        suites 'src/test/java/com/terrazor/addressbook/resources/testng-contacts.xml'
+    }
 }

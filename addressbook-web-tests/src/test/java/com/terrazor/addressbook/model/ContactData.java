@@ -21,7 +21,9 @@ public class ContactData {
     private String group;
     @Expose
     private String homePhone;
+    @Expose
     private String mobilePhone;
+    @Expose
     private String workPhone;
     private String allPhones;
     private String address;

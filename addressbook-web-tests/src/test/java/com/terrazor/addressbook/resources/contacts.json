@@ -1,37 +1,47 @@
 [
   {
-    "firstName": "test 0",
+    "firstName": "fname 0",
     "lastName": "lname 0",
     "email": "email 0",
-    "group": "fname 0",
-    "homePhone": "home 0"
+    "group": "test1",
+    "homePhone": "home 0",
+    "mobilePhone": "mobile 0",
+    "workPhone": "work 0"
   },
   {
-    "firstName": "test 1",
+    "firstName": "fname 1",
     "lastName": "lname 1",
     "email": "email 1",
-    "group": "fname 1",
-    "homePhone": "home 1"
+    "group": "test1",
+    "homePhone": "home 1",
+    "mobilePhone": "mobile 1",
+    "workPhone": "work 1"
   },
   {
-    "firstName": "test 2",
+    "firstName": "fname 2",
     "lastName": "lname 2",
     "email": "email 2",
-    "group": "fname 2",
-    "homePhone": "home 2"
+    "group": "test1",
+    "homePhone": "home 2",
+    "mobilePhone": "mobile 2",
+    "workPhone": "work 2"
   },
   {
-    "firstName": "test 3",
+    "firstName": "fname 3",
     "lastName": "lname 3",
     "email": "email 3",
-    "group": "fname 3",
-    "homePhone": "home 3"
+    "group": "test1",
+    "homePhone": "home 3",
+    "mobilePhone": "mobile 3",
+    "workPhone": "work 3"
   },
   {
-    "firstName": "test 4",
+    "firstName": "fname 4",
     "lastName": "lname 4",
     "email": "email 4",
-    "group": "fname 4",
-    "homePhone": "home 4"
+    "group": "test1",
+    "homePhone": "home 4",
+    "mobilePhone": "mobile 4",
+    "workPhone": "work 4"
   }
 ]

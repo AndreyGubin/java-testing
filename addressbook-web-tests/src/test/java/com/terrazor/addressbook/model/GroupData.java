@@ -1,5 +1,8 @@
 package com.terrazor.addressbook.model;
 
+import com.thoughtworks.xstream.annotations.XStreamAlias;
+
+@XStreamAlias("group")
 public class GroupData {
     private int id = Integer.MAX_VALUE;
     private String name;

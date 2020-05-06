@@ -32,6 +32,10 @@ dependencies {
     // https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-api
     compile group: 'org.apache.logging.log4j', name: 'log4j-api', version: '2.13.2'
 
+    // https://mvnrepository.com/artifact/mysql/mysql-connector-java
+    compile group: 'mysql', name: 'mysql-connector-java', version: '8.0.20'
+
+
 }
 
 task testGroups(type: Test) {
@@ -49,6 +53,18 @@ task testGroups(type: Test) {
 task testContacts(type: Test) {
     useTestNG {
         suites 'src/test/java/com/terrazor/addressbook/resources/testng-contacts.xml'
+    }
+    if (project.hasProperty('browser')) {
+        systemProperty 'browser', "${browser}"
+    }
+    if (project.hasProperty('target')) {
+        systemProperty 'target', "${target}"
+    }
+}
+
+task testDB(type: Test) {
+    useTestNG {
+        suites 'src/test/java/com/terrazor/addressbook/resources/testng-db.xml'
     }
     if (project.hasProperty('browser')) {
         systemProperty 'browser', "${browser}"

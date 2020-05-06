@@ -6,6 +6,8 @@
             <class name="com.terrazor.addressbook.tests.ContactCreationTests" />
             <class name="com.terrazor.addressbook.tests.ContactModificationTests" />
             <class name="com.terrazor.addressbook.tests.ContactDeletionTests" />
+            <class name="com.terrazor.addressbook.tests.ContactAddressTests" />
+            <class name="com.terrazor.addressbook.tests.ContactEmailTests" />
         </classes>
     </test>
 </suite>

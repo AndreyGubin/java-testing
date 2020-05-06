@@ -5,6 +5,7 @@
         <classes>
             <class name="com.terrazor.addressbook.tests.DbConnectionTest" />
             <class name="com.terrazor.addressbook.tests.HbConnectionTest" />
+            <class name="com.terrazor.addressbook.tests.HbContactTest" />
         </classes>
     </test>
 </suite>

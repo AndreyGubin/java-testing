@@ -36,6 +36,8 @@
 
         <!-- Names the annotated entity class -->
         <mapping class="com.terrazor.addressbook.model.GroupData"/>
+        <mapping class="com.terrazor.addressbook.model.ContactData"/>
+
 
     </session-factory>
 

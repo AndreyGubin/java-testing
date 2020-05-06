@@ -5,6 +5,8 @@ import com.google.gson.reflect.TypeToken;
 import com.terrazor.addressbook.model.GroupData;
 import com.terrazor.addressbook.model.Groups;
 import com.thoughtworks.xstream.XStream;
+import org.apache.log4j.PropertyConfigurator;
+import org.apache.log4j.Logger;
 import org.testng.annotations.*;
 
 import java.io.*;
@@ -16,6 +18,7 @@ import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.MatcherAssert.assertThat;
 
 public class GroupCreationTests extends TestBase {
+    public static final Logger log = Logger.getLogger(GroupCreationTests.class);
 
     @DataProvider
     public Iterator<Object[]> validGroupsFromXml() throws IOException {
@@ -50,7 +53,10 @@ public class GroupCreationTests extends TestBase {
     }
 
     @Test(dataProvider = "validGroupsFromJson")
+
     public void testGroupCreation(GroupData group) {
+        PropertyConfigurator.configure("src/test/java/com/terrazor/addressbook/resources/log4j.properties");
+        log.info("Start test");
         app.goTo().groupPage();
         Groups before = app.group().all();
         app.group().create(group);
@@ -58,9 +64,10 @@ public class GroupCreationTests extends TestBase {
         Groups after = app.group().all();
         assertThat(after, equalTo(
                 before.withAdded(group.withId(after.stream().mapToInt((g) -> g.getId()).max().getAsInt()))));
+        log.info("Stop test");
     }
 
-    @Test
+    @Test (enabled = false)
     public void testBadGroupCreation() {
         app.goTo().groupPage();
         Groups before = app.group().all();

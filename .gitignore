@@ -14,3 +14,7 @@ addressbook-web-tests/gradlew
 addressbook-web-tests/gradlew.bat
 addressbook-web-tests/build/
 addressbook-web-tests/debug.log
+mantis-tests/.gradle/
+mantis-tests/gradle/
+mantis-tests/gradlew.bat
+mantis-tests/gradlew

@@ -16,7 +16,7 @@ public class GroupModificationTests extends TestBase {
             app.goTo().groupPage();
             app.group().create(new GroupData().withName("test1"));
         }
-      }
+    }
 
     @Test
     public void testGroupModification() {
@@ -29,5 +29,6 @@ public class GroupModificationTests extends TestBase {
         assertThat(app.group().getGroupCount(), equalTo(before.size()));
         Groups after = app.db().groups();
         assertThat(after, equalTo(before.without(modifiedGroup).withAdded(group)));
+        verifyGroupListInUI();
     }
 }

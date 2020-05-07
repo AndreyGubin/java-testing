@@ -17,11 +17,14 @@ dependencies {
     // https://mvnrepository.com/artifact/log4j/log4j
     compile group: 'log4j', name: 'log4j', version: '1.2.17'
 
+    // https://mvnrepository.com/artifact/org.apache.httpcomponents/httpclient
+    compile group: 'org.apache.httpcomponents', name: 'httpclient', version: '4.5.12'
+
 }
 
 test {
     useTestNG {
-        suites 'src/test/java/com/terrazor/addressbook/resources/testng-groups.xml'
+        suites 'src/test/resources/tests.xml'
     }
     if (project.hasProperty('browser')) {
         systemProperty 'browser', "${browser}"

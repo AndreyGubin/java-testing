@@ -18,3 +18,4 @@ mantis-tests/.gradle/
 mantis-tests/gradle/
 mantis-tests/gradlew.bat
 mantis-tests/gradlew
+mantis-tests/build/

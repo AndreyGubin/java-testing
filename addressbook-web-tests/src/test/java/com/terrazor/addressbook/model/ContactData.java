@@ -2,6 +2,7 @@ package com.terrazor.addressbook.model;
 
 import com.google.gson.annotations.Expose;
 import com.thoughtworks.xstream.annotations.XStreamAlias;
+import com.thoughtworks.xstream.annotations.XStreamOmitField;
 import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
@@ -11,8 +12,11 @@ import java.io.File;
 @Entity
 @Table(name = "addressbook")
 public class ContactData {
+
+    @XStreamOmitField
     @Id
-    @Expose
+    @Column(name = "id")
+    private int id;
     @Column(name = "firstname")
     private String firstName;
     @Expose
@@ -24,12 +28,14 @@ public class ContactData {
     @Column(name = "email")
     @Type(type = "text")
     private String email;
-    @Transient
+    @Expose
+    @Column(name = "email2")
+    @Type(type = "text")
     private String email2;
-    @Transient
+    @Expose
+    @Column(name = "email3")
+    @Type(type = "text")
     private String email3;
-    @Column(name = "id")
-    private int id = Integer.MAX_VALUE;
     @Expose
     @Transient
     private String group;
@@ -62,7 +68,6 @@ public class ContactData {
             return null;
         }
     }
-
 
     public ContactData withPhoto(File photo) {
         this.photo = photo.getPath();
@@ -218,9 +223,9 @@ public class ContactData {
 
     @Override
     public int hashCode() {
-        int result = firstName != null ? firstName.hashCode() : 0;
+        int result = id;
+        result = 31 * result + (firstName != null ? firstName.hashCode() : 0);
         result = 31 * result + (lastName != null ? lastName.hashCode() : 0);
-        result = 31 * result + id;
         return result;
     }
 }

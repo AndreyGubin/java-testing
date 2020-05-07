@@ -1,5 +1,7 @@
 package com.terrazor.addressbook.appmanager;
 
+import com.terrazor.addressbook.model.ContactData;
+import com.terrazor.addressbook.model.Contacts;
 import com.terrazor.addressbook.model.GroupData;
 import com.terrazor.addressbook.model.Groups;
 import org.hibernate.Session;
@@ -26,9 +28,18 @@ public class DbHelper {
     public Groups groups() {
         Session session = sessionFactory.openSession();
         session.beginTransaction();
-        List<GroupData> result = session.createQuery("from GroupData").list();
+        List<GroupData> resultG = session.createQuery("from GroupData").list();
         session.getTransaction().commit();
         session.close();
-        return new Groups(result);
+        return new Groups(resultG);
+    }
+
+    public Contacts contacts() {
+        Session session = sessionFactory.openSession();
+        session.beginTransaction();
+        List<ContactData> resultC = session.createQuery("from ContactData").list();
+        session.getTransaction().commit();
+        session.close();
+        return new Contacts(resultC);
     }
 }

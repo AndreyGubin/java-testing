@@ -12,10 +12,10 @@ import java.io.IOException;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
-public class  ApplicationManager {
+public class ApplicationManager {
     private final Properties properties;
+    private MailHelper mailHelper;
     private WebDriver wd;
-
     private String browser;
     private RegistrationHelper registrationHelper;
     private FtpHelper ftp;
@@ -58,6 +58,8 @@ public class  ApplicationManager {
         return ftp;
     }
 
+
+
     public WebDriver getDriver() {
         if (wd == null) {
             if (browser.equals(BrowserType.FIREFOX)) {
@@ -69,7 +71,15 @@ public class  ApplicationManager {
             }
             wd.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
             wd.get(properties.getProperty("web.baseUrl"));
-    }
+        }
         return wd;
     }
+
+    public MailHelper mail() {
+        if (mailHelper == null) {
+            mailHelper = new MailHelper(this);
+        }
+        return mailHelper;
+    }
+
 }

@@ -23,6 +23,12 @@ dependencies {
     // https://mvnrepository.com/artifact/commons-net/commons-net
     compile group: 'commons-net', name: 'commons-net', version: '3.6'
 
+    // https://mvnrepository.com/artifact/org.subethamail/subethasmtp
+    testCompile group: 'org.subethamail', name: 'subethasmtp', version: '3.1.7'
+
+    // https://mvnrepository.com/artifact/ru.lanwen.verbalregex/java-verbal-expressions
+    compile group: 'ru.lanwen.verbalregex', name: 'java-verbal-expressions', version: '1.6'
+
 }
 
 test {

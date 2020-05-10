@@ -19,3 +19,11 @@ mantis-tests/gradle/
 mantis-tests/gradlew.bat
 mantis-tests/gradlew
 mantis-tests/build/
+soap-sample/.gradle/
+soap-sample/gradle/
+soap-sample/gradlew.bat
+soap-sample/gradlew
+soap-sample/build/test-results/
+soap-sample/build/reports/
+soap-sample/build/classes/
+soap-sample/build/wsdl2java/

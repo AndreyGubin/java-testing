@@ -27,3 +27,8 @@ soap-sample/build/test-results/
 soap-sample/build/reports/
 soap-sample/build/classes/
 soap-sample/build/wsdl2java/
+rest-sample/.gradle/
+rest-sample/gradle/
+rest-sample/gradlew.bat
+rest-sample/gradlew
+rest-sample/build/

@@ -31,4 +31,13 @@ public class SoapTests extends TestBase {
         Issue created = app.soap().addIssue(issue);
         assertEquals(issue.getSummary(), created.getSummary());
     }
+
+    @Test
+    public void testStatusIssue() throws RemoteException, ServiceException, MalformedURLException {
+        // указываем номер задачи в багтрекере
+        skipIfNotFixed(3);
+        // если у задачи статус "решена" или "закрыта", то продолжаем выполнение теста и выводим сообщение
+        // если статус другой, то пропускаем тест и ставим метку ignored
+        System.out.println("Test Started! ");
+    }
 }

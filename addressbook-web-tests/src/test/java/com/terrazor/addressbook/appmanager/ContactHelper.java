@@ -2,6 +2,7 @@ package com.terrazor.addressbook.appmanager;
 
 import com.terrazor.addressbook.model.ContactData;
 import com.terrazor.addressbook.model.Contacts;
+import com.terrazor.addressbook.model.GroupData;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -106,7 +107,7 @@ public class ContactHelper extends BaseHelper {
 
     }
 
-    private void initContactModificationById(int id) {
+    public void initContactModificationById(int id) {
         WebElement checkbox = wd.findElement(By.cssSelector(String.format("input[value'%s']", id)));
         WebElement row = checkbox.findElement(By.xpath("./../.."));
         List<WebElement> cells = row.findElements(By.tagName("td"));
@@ -127,7 +128,7 @@ public class ContactHelper extends BaseHelper {
         goToHomePage();
     }
 
-    private void editContactById(int id) {
+    public void editContactById(int id) {
         wd.findElement(By.xpath("//a[@href=\"edit.php?id=" + id + "\"]")).click();
     }
 
@@ -181,5 +182,31 @@ public class ContactHelper extends BaseHelper {
         return contacts;
     }
 
+    public void addContactToGroup(ContactData contact, GroupData group) {
+        selectContactById(contact.getId());
+        selectGroupForContact(group.getId());
+        submitAddingGroup();
+    }
+
+    private void selectGroupForContact(int groupId) {
+        new Select(wd.findElement(By.name("to_group"))).selectByValue("" + groupId);
+    }
+
+    private void submitAddingGroup() {
+        click(By.name("add"));
+    }
+
+    public void deleteContactFromGroup(ContactData contact, GroupData group) {
+        selectGroupDeletion(group.getId());
+        selectContactById(contact.getId());
+        submitGroupDeletion();
+    }
+
+    private void selectGroupDeletion(int groupId) {
+        new Select(wd.findElement(By.name("group"))).selectByValue("" + groupId);
+    }
+    private void submitGroupDeletion() {
+        click(By.name("remove"));
+    }
 
 }

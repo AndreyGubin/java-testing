@@ -8,6 +8,8 @@
             <class name="com.terrazor.addressbook.tests.ContactDeletionTests" />
             <class name="com.terrazor.addressbook.tests.ContactAddressTests" />
             <class name="com.terrazor.addressbook.tests.ContactEmailTests" />
+            <class name="com.terrazor.addressbook.tests.AddContactToGroupTests" />
+            <class name="com.terrazor.addressbook.tests.DeleteContactFromGroupTests" />
         </classes>
     </test>
 </suite>

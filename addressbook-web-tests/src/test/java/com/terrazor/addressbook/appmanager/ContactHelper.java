@@ -81,8 +81,8 @@ public class ContactHelper extends BaseHelper {
         if (creation) {
             if (contactData.getGroups().size() > 0) {
                 Assert.assertTrue(contactData.getGroups().size() == 1);
-            new Select(wd.findElement(By.name("new_group"))).selectByVisibleText(contactData.getGroups().iterator().next().getName());
-        }
+                new Select(wd.findElement(By.name("new_group"))).selectByVisibleText(contactData.getGroups().iterator().next().getName());
+            }
         } else {
             Assert.assertFalse(isElementPresent(By.name("new_group")));
         }
@@ -182,13 +182,17 @@ public class ContactHelper extends BaseHelper {
         return contacts;
     }
 
+
     public void addContactToGroup(ContactData contact, GroupData group) {
+        goToHomePage();
         selectContactById(contact.getId());
         selectGroupForContact(group.getId());
         submitAddingGroup();
+        goToHomePage();
     }
 
-    private void selectGroupForContact(int groupId) {
+
+    public void selectGroupForContact(int groupId) {
         new Select(wd.findElement(By.name("to_group"))).selectByValue("" + groupId);
     }
 
@@ -197,14 +201,13 @@ public class ContactHelper extends BaseHelper {
     }
 
     public void deleteContactFromGroup(ContactData contact, GroupData group) {
-        selectGroupDeletion(group.getId());
+        goToHomePage();
+        new Select(wd.findElement(By.name("group"))).selectByVisibleText(group.getName());
         selectContactById(contact.getId());
         submitGroupDeletion();
+        goToHomePage();
     }
 
-    private void selectGroupDeletion(int groupId) {
-        new Select(wd.findElement(By.name("group"))).selectByValue("" + groupId);
-    }
     private void submitGroupDeletion() {
         click(By.name("remove"));
     }
